@@ -37,7 +37,7 @@ return {
 	      },
 	    },
 	  })
-	end,	
+	end,
 
 	ruff = function()
         lspconfig.ruff.setup({
@@ -56,7 +56,12 @@ return {
           end,
         })
       end,
-	-- lua
+    
+    -- rust
+    rust_analyzer = function ()
+    end,
+
+    -- lua
 	lua_ls = function()        -- custom rules ONLY for lua_ls
 		local home = vim.loop.os_homedir()
 
