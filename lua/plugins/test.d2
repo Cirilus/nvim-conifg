@@ -1,0 +1,45 @@
+# Set diagram direction
+direction: right
+
+# Define nodes
+web: Web Server {
+  shape: rectangle
+  style: {
+    fill: "#F0FFF4"
+    stroke: "#38A169"
+  }
+}
+
+database: PostgreSQL {
+  shape: cylinder
+  style: {
+    fill: "#EBF8FF"
+    stroke: #3182ce
+  }
+}
+
+cache: Redis {
+  shape: page
+  style: {
+    fill: "#FFF5F5"
+    stroke: #e53e3e
+  }
+}
+
+# Create connections
+web -> database: SQL queries
+web <-> cache: Session data {
+  style: {
+    stroke-dash: 3
+  }
+}
+
+# Add title and styling
+title: System Architecture v1.0
+styles: {
+  all: {
+    shadow: false
+    font-color: #2D3748
+  }
+}
+
