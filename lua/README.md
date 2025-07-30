@@ -5,6 +5,8 @@
 - ctrl + i - go to the forawrd cursor location
 - shift + u - go to forward to the history
 - u - go to the backward of the history
+- 6[h|j|k|l] - go to 6 line to postion
+- ctrl + w - reset search selection
 
 # plugins keymaps
 - Comment 
