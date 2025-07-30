@@ -7,8 +7,17 @@
 - u - go to the backward of the history
 - 6[h|j|k|l] - go to 6 line to postion
 - ctrl + w - reset search selection
+- gv - higlight last higlighted
+- ctrl + v - multiline selection, shtift + i - write text, esc - enter the text
+- shift + ~ - change the capital of the letter
+- ctrl + - go to background, fg in termibal return to nvim
+- gx - open url in the browser
+- gf - open the file
+- shift + j - join the line
+- vib - select within (), viB - select within {}, vi" - inside ""
+- vab, vaB, va" - with quotes
 
-# plugins keymaps
+# "plugins keymaps"
 - Comment 
     - gcc - comment the lines 
 
