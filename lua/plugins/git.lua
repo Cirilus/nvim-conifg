@@ -1,5 +1,4 @@
 return {
-
   {
     "tpope/vim-fugitive",
     cmd = { "G", "Git", "Gstatus", "Gdiffsplit", "Gread", "Gwrite" }, 
@@ -14,9 +13,12 @@ return {
       { "<leader>gD", ":Gvdiffsplit<CR>",               desc = "Diff (vsplit)" },
       { "<leader>gr", ":Gread<CR>",                     desc = "Discard buffer changes (checkout file)" },
       { "<leader>gw", ":Gwrite<CR>",                    desc = "Stage current file (git add %)" },
-      -- Optional (needs tpope/vim-rhubarb for GitHub): open current line/range on remote
+
       { "<leader>gB", ":GBrowse<CR>",                   desc = "Open on remote (current file/line)" },
     },
+  },
+  {
+      "tpope/vim-rhubarb",
   },
   {
     "lewis6991/gitsigns.nvim",

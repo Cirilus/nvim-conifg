@@ -27,5 +27,6 @@
   "rustaceanvim": { "branch": "master", "commit": "7f4b28a888340c7658e3f95a965cee67f29f9a23" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "tree-sitter-d2": { "branch": "main", "commit": "cd980e921f31d253786742a612ab444fd5b46b85" },
-  "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" }
+  "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" },
+  "vim-rhubarb": { "branch": "master", "commit": "5496d7c94581c4c9ad7430357449bb57fc59f501" }
 }
