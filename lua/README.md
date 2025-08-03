@@ -21,6 +21,11 @@
 - Comment 
     - gcc - comment the lines 
 
+- telescope
+    - ff - find the file
+    - fg - find the word
+    - fr - find the refence of the object, e.g functions
+
 - go
     - space + r - run the formatting and importing packages
 
