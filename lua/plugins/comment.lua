@@ -1,5 +1,3 @@
--- "gc" for comment
-
 return {
   "numToStr/Comment.nvim",
   dependencies = {
