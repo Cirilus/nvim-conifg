@@ -11,8 +11,26 @@ return {
   keys = {
     { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo‑tree" },
     { "<leader>у", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo‑tree" },
-    { "<leader>r", "<cmd>Neotree focus<cr>",  desc = "Focus Neo‑tree" },
-    { "<leader>к", "<cmd>Neotree focus<cr>",  desc = "Focus Neo‑tree" },
+    { "<leader>r", function()
+        -- if current buffer is Neo-tree, go back to previous window
+        if vim.bo.filetype == "neo-tree" then
+          vim.cmd.wincmd("p")
+        else
+          vim.cmd("Neotree focus") -- otherwise focus Neo-tree
+        end
+      end,
+      desc = "Toggle focus Neo-tree / Code"
+    },
+    { "<leader>к", function()
+        -- if current buffer is Neo-tree, go back to previous window
+        if vim.bo.filetype == "neo-tree" then
+          vim.cmd.wincmd("p")
+        else
+          vim.cmd("Neotree focus") -- otherwise focus Neo-tree
+        end
+      end,
+      desc = "Toggle focus Neo-tree / Code"
+    },
   },
 
   opts = {
