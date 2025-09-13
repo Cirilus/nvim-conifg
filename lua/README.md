@@ -30,9 +30,8 @@
     - space + r - run the formatting and importing packages
 
 - neotree
-    - open sysyem explorer - space + e 
-    - close - space + e 
-    - focus - space + r
+    - toggle - space + e
+    - toggle focus Neo-tree/Code - space + r (when in Neo-tree, returns to the previously opened file)
 
 - rust
     - space + a - snippets 
@@ -40,3 +39,17 @@
 
 - markdown 
     - space + mp - show the markdown viewer 
+
+- git
+    - <leader> + gc - git commits (telescope)
+    - <leader> + gs - git status (telescope)
+    - <leader> + gb - git branches (telescope)
+    - <leader> + gs - git status (fugitive)
+    - <leader> + gb - git blame (fugitive)
+    - ]c - next git hunk (gitsigns)
+    - [c - prev git hunk (gitsigns)
+    - <leader> + hs - stage hunk (gitsigns)
+    - <leader> + hr - reset hunk (gitsigns)
+    - <leader> + hp - preview hunk (gitsigns)
+    - <leader> + do - open diffview
+    - <leader> + dc - close diffview

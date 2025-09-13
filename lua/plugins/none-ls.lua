@@ -3,16 +3,32 @@ return {
     "nvimtools/none-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
-      {
-        "<leader>t",
-        function()
-          vim.lsp.buf.format({
-            async = true,
-            filter = function(client) return client.name == "null-ls" end,
-          })
-        end,
-        desc = "Format (none-ls: goimports + gofumpt)",
-      },
+        {
+          "<leader>t",
+          function()
+            local function null_ls_formats_available()
+              local ok, sources = pcall(require, "null-ls.sources")
+              if not ok then return false end
+              local ft = vim.bo.filetype
+              local avail = sources.get_available(ft, "NULL_LS_FORMATTING")
+              return #avail > 0
+            end
+
+            local use_null = null_ls_formats_available()
+
+            vim.lsp.buf.format({
+              async = true,
+              filter = function(client)
+                if use_null then
+                  return client.name == "null-ls"
+                end
+                return client.name ~= "null-ls"
+                  and (client.supports_method and client.supports_method("textDocument/formatting"))
+              end,
+            })
+          end,
+          desc = "Format (null-ls preferred when available)",
+        }
     },
     opts = function()
       local null_ls = require("null-ls")
@@ -32,12 +48,14 @@ return {
         table.insert(goimports_args, mod)
       end
 
-      return {
-        sources = {
-          null_ls.builtins.formatting.goimports.with({ args = goimports_args }),
-          null_ls.builtins.formatting.gofumpt,
-        },
+      local sources = {
+        null_ls.builtins.formatting.goimports.with({ args = goimports_args }),
+        null_ls.builtins.formatting.gofumpt,
+        null_ls.builtins.formatting.terraform_fmt,
+        null_ls.builtins.diagnostics.tflint,
       }
+
+      return { sources = sources }
     end,
   },
 
@@ -46,7 +64,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "williamboman/mason.nvim" },
     opts = {
-      ensure_installed = { "goimports", "gofumpt" },
+      ensure_installed = {
+        "goimports",
+        "gofumpt",
+        "tflint",
+      },
       automatic_installation = true,
     },
   },
