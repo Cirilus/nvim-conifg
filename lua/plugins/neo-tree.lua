@@ -45,7 +45,6 @@ return {
                 hide_gitignored = false,
             },
             follow_current_file = { enabled = true },
-            group_empty_dirs = true,
             hijack_netrw_behavior = "open_current",
             use_libuv_file_watcher = true,
         },
