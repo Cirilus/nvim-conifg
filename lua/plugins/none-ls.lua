@@ -67,7 +67,6 @@ return {
       ensure_installed = {
         "goimports",
         "gofumpt",
-        "tflint",
       },
       automatic_installation = true,
     },

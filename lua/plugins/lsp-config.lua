@@ -7,21 +7,19 @@ return {
         { "]d", function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" },
     },
     config = function()
-        local lspconfig = require("lspconfig")
-
         -- Terraform LSP
-        local util = require("lspconfig.util")
+        local terraform_root_markers = {
+            ".terraform",  -- appears after terraform init
+            "terragrunt.hcl",
+            "main.tf",
+            "versions.tf",
+            ".git",
+        }
 
-        lspconfig.terraformls.setup({
+        vim.lsp.config("terraformls", {
             cmd = { "terraform-ls", "serve" },   -- ensure this binary exists (Mason can install it)
             filetypes = { "terraform", "terraform-vars" }, -- no plain "hcl"
-            root_dir = util.root_pattern(
-                ".terraform",                    -- appears after terraform init
-                "main.tf",
-                "versions.tf",
-                ".git",
-                "terragrunt.hcl" -- keep if you use Terragrunt in the same root
-            ),
+            root_markers = terraform_root_markers,
             -- Use init_options if you need LS knobs; settings{} is ignored by terraform-ls
             init_options = {
                 -- example:
@@ -30,6 +28,8 @@ return {
                 },
             },
         })
+
+        vim.lsp.enable("terraformls")
 
         -- Format on save for Terraform/HCL using null-ls when available
         vim.api.nvim_create_autocmd("BufWritePre", {
