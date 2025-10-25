@@ -40,6 +40,13 @@
 - markdown 
     - space + mp - show the markdown viewer 
 
+- spectre
+    - space + sr - search & replace (spectre)
+    - space + sw - search current word (spectre)
+    - space + sf - search in current file (spectre)
+    - dd - toggle entry within the results (spectre)
+    - enter - open the file under cursor (spectre)
+
 - git
     - <leader> + gc - git commits (telescope)
     - <leader> + gs - git status (telescope)

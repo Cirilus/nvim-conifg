@@ -10,7 +10,7 @@ vim.keymap.set({'n', 'x'}, '<leader>d', 'd', { noremap = true, desc = "Cut with 
 -- redo
 vim.keymap.set('n', 'U', '<C-r>', { noremap = true, silent = true, desc = "Redo last change" })
 
-vim.keymap.set('n', '<C-w>', ':nohlsearch<CR>', { noremap = true, silent = true, desc = "Reset the search selection" })
+vim.keymap.set('n', '<C-e>', ':nohlsearch<CR>', { noremap = true, silent = true, desc = "Reset the search selection" })
 
 
 vim.keymap.set("n", "<leader>h", function()
